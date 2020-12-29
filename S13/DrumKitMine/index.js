@@ -118,7 +118,78 @@ function handleClickNewer() {
     console.log(soundFile);
     let sound = new Audio(soundFile);
     sound.play();
+    animation(buttonInnerHtml);
 
 
+
+}
+
+console.log('**********************168 Objects methods************************');
+
+function HouseKeeper2(name, yearsOfExperience, cleaningRepertoire) {
+    this.name = name,
+        this.yearsOfExperience = yearsOfExperience,
+        this.cleaningRepertoire = cleaningRepertoire,
+
+        this.clean = function () {
+            console.log('Im cleaning');
+        }
+}
+
+let houseKeeper3 = new HouseKeeper2();
+
+houseKeeper3.clean();
+
+console.log('**********************170 Keyboard events************************');
+document.addEventListener('keydown', function (event) {
+    console.log('key pressed');
+    console.log(event);
+    console.log(event.key);
+    if (event.key === 'a') {
+        console.log('a was pressed');
+    }
+    makeSound(event.key)
+})
+
+function makeSound(key) {
+    switch (key) {
+        case 'w':
+            soundFile = 'sounds/tom-1.mp3';
+            break;
+
+        case 'a':
+            soundFile = 'sounds/tom-2.mp3';
+            break;
+        case 's':
+            soundFile = 'sounds/tom-3.mp3';
+            break;
+        case 'd':
+            soundFile = 'sounds/tom-4.mp3';
+            break;
+        case 'j':
+            soundFile = 'sounds/snare.mp3';
+            break;
+        case 'k':
+            soundFile = 'sounds/crash.mp3';
+            break;
+        case 'l':
+            soundFile = 'sounds/kick-bass.mp3';
+            break;
+    }
+    console.log(soundFile);
+    let sound = new Audio(soundFile);
+    sound.play();
+    animation(key);
+
+}
+
+
+console.log('**********************171 Animation************************');
+
+function animation(key) {
+    document.querySelector("." + key).classList.toggle('pressed');
+    setTimeout(() => {
+        document.querySelector("." + key).classList.toggle('pressed');
+    }, 100);
 
 }
