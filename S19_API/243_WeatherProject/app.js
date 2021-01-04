@@ -1,6 +1,14 @@
 // 243
 const express = require('express');
 const app = express();
+// 248
+const request = require("request");
+
+// 246 requiring body parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // 243
 app.get("/", (req, res) => {
@@ -21,11 +29,18 @@ const https = require('https');
 // regular way: https.get('https://api.openweathermap.org/data/2.5/weather?q=Sevilla&units=metric&appid=97fd247478b9405f96de2ec549754893', (res) => {
 // but we are putting tue url with a constant
 
-// 243, 244
+// 246
 app.get("/weather", (req, res) => {
-    // 246 changed const url = 'https://api.openweathermap.org/data/2.5/weather?q=Sevilla&units=metric&appid=97fd247478b9405f96de2ec549754893';
+    res.sendFile(__dirname + "/index.html");
+})
+
+
+// 243, 244, 246
+// 246 changed from .get to .post
+app.post("/weather", (req, res) => {
+    // 246 changed const url = 'https://api.openweathermap.org/data/2.5/weather?q=Sevilla&units=metric&appid=97fd247478b9405f96de2ec549754893'; 
     console.log('*****************246 Using body parser to parse POST**********************');
-    const query = "Seville";
+    const query = req.body.cityInput;
     const unit = "metric"
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=${unit}&appid=97fd247478b9405f96de2ec549754893`;
     https.get(url, (response) => {
@@ -79,6 +94,25 @@ app.get("/weather", (req, res) => {
 600-
 */
 
+// 248 use of static for files as css or images (All static files must be in the folder)
+app.use(express.static("public"));
+
+// 248 NEWSLETTER
+app.get("/signup", (req, res) => {
+    res.sendFile(__dirname + "/signup.html")
+})
+
+// 248
+app.post("/signup", (req, res) => {
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let email = req.body.email;
+    console.log(firstName + lastName + email);
+
+})
+
+// Generating mailchimp account.
+// API KEY: 606e359d6ccca2db62512f0b70113c65-us7
 
 // 243
 app.listen(3000, function () {
