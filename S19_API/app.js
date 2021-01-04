@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 // 248
 const request = require("request");
+// 243 get request to external server
+const https = require('https');
+
 
 // 246 requiring body parser
 const bodyParser = require('body-parser');
@@ -21,8 +24,6 @@ Make get request to external server with node:
     There are five ways and the first way is the native way: HTTPS module
 */
 
-// 243 get request to external server
-const https = require('https');
 
 // notice that it needs to start with https
 
@@ -102,19 +103,72 @@ app.get("/signup", (req, res) => {
     res.sendFile(__dirname + "/signup.html")
 })
 
-// 248
+// 248, 249
 app.post("/signup", (req, res) => {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
     let email = req.body.email;
     console.log(firstName + lastName + email);
+    // 249 converting data to MailChimp
+    let data = {
+        members: [{
+            email_address: email,
+            status: 'subscribed',
+            merge_fields: {
+                FNAME: firstName,
+                LNAME: lastName
+            }
+        }]
+    };
 
+    let jsonData = JSON.stringify(data);
+    // 249 https request
+    let list_id = '4146661b48';
+    let server_id = "us7";
+    let api_key = "6256d17ab2f961227723e415ba3f5bf4-us7";
+    const url = `https://${server_id}.api.mailchimp.com/3.0/lists/${list_id}`
+    console.log(url);
+    const options = {
+        method: "POST",
+        auth: "javier:6256d17ab2f961227723e415ba3f5bf4-us7"
+    }
+
+    // we need to store the request on a const to post it to mailchimp server
+    const request = https.request(url, options, function (response) {
+        console.log('*****************250 Adding Success and Failure**********************');
+        // 250
+        if (response.statusCode === 200) {
+            res.sendFile(__dirname + "/success.html")
+        } else {
+            res.sendFile(__dirname + "/failure.html")
+        }
+
+        response.on("data", (data) => {
+            console.log(JSON.parse(data));
+        })
+    })
+    // use the request to write it and send it.
+    request.write(jsonData);
+    request.end();
 })
 
 // Generating mailchimp account.
 // API KEY: 606e359d6ccca2db62512f0b70113c65-us7
+// audience id: 4146661b48
 
-// 243
-app.listen(3000, function () {
+
+// 250
+app.post("/failure", (req, res) => {
+    res.redirect("/signup");
+})
+
+
+// 243 del 251
+// app.listen(3000, function () {
+//     console.log('Server is running on port 3000');
+// })
+
+// 251 to set it for heroku
+app.listen(process.env.PORT || 3000, function () {
     console.log('Server is running on port 3000');
 })
