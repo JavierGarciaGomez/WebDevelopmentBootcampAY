@@ -10,16 +10,37 @@
 </head>
 
 <body>
-    <!-- 267 control flow -->
-    <% if (day==="Weekend" ) {%>
-        <h1 class="purple-txt"> It's a <%= day %>
-        </h1>
-        <% } else { %>
-            <h1 class="grey-txt"> It's a <%= day %>
-            </h1>
-            <% } %>
 
-                <div class="test">GHAAA</div>
+    <!-- 268 -->
+    <h1> It's a <%= day %>
+    </h1>
+
+    <ul>
+        <% for(var i=0; i<items.length; i++){ %>
+            <li>
+                <%= items[i] %>
+            </li>
+            <% }%>
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" name="newItem">
+        <button type:"submit">Envía</button>
+    </form>
+
+    <!-- Previous to 268 lesson -->
+    <%if (false) {%>
+        <!-- 267 control flow -->
+        <% if (day==="Weekend" ) {%>
+            <h1 class="purple-txt"> It's a <%= day %>
+            </h1>
+            <% } else { %>
+                <h1 class="grey-txt"> It's a <%= day %>
+                </h1>
+                <% } %>
+
+                    <div class="test">GHAAA</div>
+                    <%}%>
 
 </body>
 

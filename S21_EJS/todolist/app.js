@@ -7,11 +7,20 @@ const app = express();
 app.set('view engine', 'ejs'); // calling ejs
 
 app.use(express.static(__dirname + '/public')); // calling public files
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // using bodyparser
+
+// 268
+let items = ['Buy food', 'Cook food', 'Eat food'];
+
+
 
 // 265, 266
 app.get("/", (req, res) => {
     console.log("**************265 Templates**************************");
     console.log("**************266 EJS**************************");
+    console.log("**************267 Code inside EJS**************************");
     let today = new Date();
     let day = "";
     // chech if is saturday or sunday
@@ -20,10 +29,31 @@ app.get("/", (req, res) => {
     } else {
         day = "Weekday";
     }
+    console.log("**************268 Passing data from webpage to server**************************");
+    console.log(items);
+    // 268
+    let options = {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+    }
+
+    day = today.toLocaleDateString("en-US", options);
+
+    // 265, 268
     res.render('list', {
-        day: day
+        day: day,
+        items: items
     });
 });
+
+// 268
+app.post("/", (req, res) => {
+    let newItem = req.body.newItem;
+    items.push(newItem);
+    console.log(newItem);
+    res.redirect("/")
+})
 
 /* 267 EJS TAGS
 <% 'Scriptlet' tag, for control-flow, no output
