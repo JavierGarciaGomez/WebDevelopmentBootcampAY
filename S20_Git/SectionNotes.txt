@@ -1,0 +1,20 @@
+254
+	Git Init to start git
+	Git status - untracked files
+	git add . - added to the staging area (all)
+	git add {fileName} - add to the staging area single file
+	git commit -m 
+	git diff {fileName} - show differences between the last commit	git checkout chapter3.txt - 
+	git checkout {filename} - return to the last commit
+255 Github
+	git remote add origin - {remoteName, default origin} {website} - create remote
+	git push -u origin {branch name: master} --> push it to remote. Master is the deault branch
+257 GitIgnore
+	.DS_Store -> folder normally created to store sensitive info
+	touch .gitignore
+	git rm --cached -r . --> remove all from the staging area
+	// to ignore just pust the files or folders in .gitignore
+	// templates github gitignore https://github.com/contentful/the-example-app.nodejs
+258 Git clone
+	git clone https://github.com/bradtraversy/node_crash_course.git
+
