@@ -4,55 +4,85 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 // 266
+// 272 MODULES
+const date = require(__dirname + "/date.js");
+console.log(date);
+
+
 app.set('view engine', 'ejs'); // calling ejs
 
-app.use(express.static(__dirname + '/public')); // calling public files
+app.use(express.static('public')); // calling public files
+// 270
 app.use(bodyParser.urlencoded({
     extended: true
 })); // using bodyparser
 
+
+
 // 268
-let items = ['Buy food', 'Cook food', 'Eat food'];
+const items = ['Buy food', 'Cook food', 'Eat food'];
+// 271
+const workItems = [];
 
 
 
-// 265, 266
+// 265, 266, 268, 271, 272
 app.get("/", (req, res) => {
     console.log("**************265 Templates**************************");
     console.log("**************266 EJS**************************");
     console.log("**************267 Code inside EJS**************************");
-    let today = new Date();
-    let day = "";
+
+
     // chech if is saturday or sunday
-    if (today.getDay() === 6 || today.getDay() === 0) {
-        day = "Weekend";
-    } else {
-        day = "Weekday";
-    }
+    // if (today.getDay() === 6 || today.getDay() === 0) {
+    //     day = "Weekend";
+    // } else {
+    //     day = "Weekday";
+    // }
     console.log("**************268 Passing data from webpage to server**************************");
     console.log(items);
     // 268
-    let options = {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long'
-    }
 
-    day = today.toLocaleDateString("en-US", options);
+    // 272
+    let day = date.getDate();
 
-    // 265, 268
+
+    // 265, 268, 271
     res.render('list', {
-        day: day,
+        listTitle: day,
         items: items
     });
 });
 
 // 268
 app.post("/", (req, res) => {
+    console.log(req.body);
     let newItem = req.body.newItem;
-    items.push(newItem);
-    console.log(newItem);
-    res.redirect("/")
+    // 271
+    console.log(`+++++++++++++Printing the body from app.post ${req.body}`);
+    if (req.body.listName === "Work") {
+        workItems.push(newItem);
+        res.redirect("/work");
+    } else {
+        items.push(newItem);
+        res.redirect("/");
+    }
+})
+
+// 271
+app.get("/work", (req, res) => {
+    res.render("list", {
+        listTitle: "Work List",
+        items: workItems
+    });
+})
+
+
+// 271
+app.get("/about", (req, res) => {
+    res.render("about", {
+
+    });
 })
 
 /* 267 EJS TAGS
@@ -67,5 +97,6 @@ app.post("/", (req, res) => {
 _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
 
 */
+
 
 app.listen(3000, () => console.log("Server started onr port 3000"));

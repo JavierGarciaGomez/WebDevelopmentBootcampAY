@@ -1,32 +1,41 @@
-<!-- 265, 266 -->
-<!DOCTYPE html>
-<html lang="en">
+<!-- 265, 266, 268, 270, 271 (changed to header.ejs) -->
+<%- include("header") -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-    <link rel="stylesheet" href="/css/styles.css" type="text/css">
-</head>
-
-<body>
-
-    <!-- 268 -->
-    <h1> It's a <%= day %>
-    </h1>
-
-    <ul>
-        <% for(var i=0; i<items.length; i++){ %>
-            <li>
-                <%= items[i] %>
-            </li>
+    <!-- 268, 270, 271 -->
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+        <!-- changed 271 -->
+        <%if (false) {%>
+            <h1> It's a <%= day %>
+            </h1>
             <% }%>
-    </ul>
+    </div>
 
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button type:"submit">Envía</button>
-    </form>
+    <!-- 270 -->
+    <div class="box">
+        <% for(var i=0; i<items.length; i++){ %>
+            <div class="item">
+                <input type="checkbox" name="" id="">
+                <p>
+                    <%= items[i] %>
+                </p>
+            </div>
+            <% }%>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <!-- 271 -->
+                    <button type:"submit" name="listName" value=<%=listTitle %>>+</button>
+                </form>
+    </div>
+
+    <!-- 270 -->
+
+
+
+
+
 
     <!-- Previous to 268 lesson -->
     <%if (false) {%>
@@ -42,6 +51,4 @@
                     <div class="test">GHAAA</div>
                     <%}%>
 
-</body>
-
-</html>
+                        <%- include("footer") -%>
