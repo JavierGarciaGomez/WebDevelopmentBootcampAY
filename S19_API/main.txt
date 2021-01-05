@@ -1,6 +1,0 @@
-241 API
-
-241 challenge
-http://api.openweathermap.org/data/2.5/weather?q=Sevilla&units=metric&appid=97fd247478b9405f96de2ec549754893
-
-Postman download and test
