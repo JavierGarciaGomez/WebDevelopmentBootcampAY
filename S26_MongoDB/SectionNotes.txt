@@ -1,0 +1,17 @@
+// 326, 327 installing MongoDB
+
+// 328 MongoDB Crud operations: CREATE
+	mongod to open the server
+	mongo to access mongodb
+	show dbs // to show dbs
+	use {dbName} // to create a DB and use it
+	db // to find the current db
+	db.firstcoll.insertOne({name: "Me", age: 35}) // CREATE A COLL and insert
+
+// 329 MongoDB Crud operations: Reading and queries
+	show collections // find the collections
+	db.products.find() // read the collection
+	db.products.find({query}{projection})  // 
+	// query operators: for example $eq = equal; $gt = greater than $lte =less or equal
+	db.products.find({name: "Pencil"});
+	db.products.find({_id: {$gt: 1}}); // search id greater than 1
