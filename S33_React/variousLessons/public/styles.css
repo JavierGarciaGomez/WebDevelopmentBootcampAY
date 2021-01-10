@@ -3,7 +3,7 @@
 }
 
 /* 410 */
-body {
+#root410 {
   font-family: sans-serif;
   margin: 0 auto;
   padding: 25px;
@@ -87,7 +87,15 @@ img {
 }
 
 /* 413 */
-h1 {
+#root413{  
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 1.666;
+    background: #c0d2d4;
+    color: #555;  
+}
+
+#root413 h1 {
   font-weight: 900;
   font-size: 500%;
   text-align: center;
@@ -96,12 +104,12 @@ h1 {
   line-height: 1.2;
 }
 /* 413 */
-h1 span {
+#root413 h1 span {
   padding: 5px 15px;
   background: #2ec2b0;
 }
 /* 413 */
-.dictionary {
+#root413 .dictionary {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -109,7 +117,7 @@ h1 span {
   max-width: 90%;
 }
 /* 413 */
-.dictionary > .term {
+#root413 .dictionary > .term {
   text-align: center;
   max-width: 20rem;
   margin-bottom: 3rem;
@@ -120,45 +128,45 @@ h1 span {
   transition: all 100ms ease-in-out;
 }
 /* 413 */
-.dictionary > .term > dt {
+#root413 .dictionary > .term > dt {
   margin-bottom: 1rem;
 }
 /* 413 */
-dt {
+#root413 dt {
   color: #2ec2b0;
   line-height: 1;
 }
 /* 413 */
-dt span {
+#root413 dt span {
   font-size: 200%;
   font-weight: 900;
 }
 /* 413 */
-.emoji {
+#root413 .emoji {
   margin: 0 auto 20px;
   display: block;
   font-size: 400%;
 }
 /* 413 */
-dd {
+#root413 dd {
   font-size: 92.5%;
   margin-left: 0;
 }
 /* 413 */
-dd dt {
+#root413 dd dt {
   margin-top: 1rem;
   margin-bottom: 0.25rem;
   font-weight: 600;
   font-size: inherit;
 }
 /* 413 */
-dd dl {
+#root413 dd dl {
   font-size: 90%;
   margin: 1rem auto 0 auto;
   letter-spacing: 0.33px;
   max-width: 15rem;
 }
 /* 413 */
-dd dl .term {
+#root413 dd dl .term {
   margin-bottom: 1rem;
 }

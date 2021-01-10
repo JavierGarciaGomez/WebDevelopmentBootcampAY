@@ -11,6 +11,7 @@ import App401 from './components/App401';
 // 410
 import App410 from './components/App410';
 import App413 from './components/App413';
+import emojipedia from './emojipedia';
 
 // 394 render function
 // 394 ReactDOM.render({what to show}, {where to show}, {optional: callback when})
@@ -145,3 +146,34 @@ ReactDOM.render(<App410 />, document.querySelector('#root410'));
 
 // 413
 ReactDOM.render(<App413 />, document.querySelector('#root413'));
+
+// 414
+const numbers = [ 3, 56, 2, 48, 5 ];
+
+//Map -Create a new array by doing something with each item in an array
+console.log('**********************413******************');
+numbers.map((number) => console.log(number));
+
+//Filter - Create a new array by keeping the items that return true.
+const filteredNum = numbers.filter((num) => num > 10);
+console.log(filteredNum);
+
+//Reduce - Accumulate a value by doing something to each item in an array.
+const reducedNum = numbers.reduce((acc, num) => acc + num);
+console.log(reducedNum);
+
+//Find - find the first item that matches from an array.
+let foundNum = numbers.find((num) => num > 10);
+console.log(foundNum);
+
+//FindIndex - find the index of the first item that matches.
+let foundIndex = numbers.findIndex((num) => num > 10);
+console.log(foundIndex);
+
+console.log(emojipedia);
+
+let mappedEmojipedia = emojipedia.map((emoji) => emoji.meaning.slice(0, 100));
+
+console.log(mappedEmojipedia);
+
+// 415 arrow functions
