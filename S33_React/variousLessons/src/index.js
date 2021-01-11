@@ -21,6 +21,9 @@ import App424 from './components/App424';
 import App427 from './components/App427';
 import App428 from './components/App428';
 import App429 from './components/App429';
+import App430 from './components/App430';
+import App431 from './components/App431';
+import App432 from './components/App432';
 
 // 394 render function
 // 394 ReactDOM.render({what to show}, {where to show}, {optional: callback when})
@@ -77,9 +80,15 @@ ReactDOM.render(
 	<div>
 		<p className="bg-red">Lesson 398</p>
 		<div className="container398">
-			<img src="https://www.sustainweb.org/resources/images/fruit_veg/Apple_handover.jpg" />
-			<img src="https://thumbor.thedailymeal.com/JHLjjfAnRXkO_O2W0JoOl_XvXdI=/870x565/filters:format(webp)/https://www.thedailymeal.com/sites/default/files/story/MAIN-skillsperfect-istock_thinkstock.jpg" />
-			<img src="https://cdn.massagemag.com/wordpress/wp-content/uploads/womaneatingsalad-1024x683.jpg" />
+			<img src="https://www.sustainweb.org/resources/images/fruit_veg/Apple_handover.jpg" alt="img" />
+			<img
+				src="https://thumbor.thedailymeal.com/JHLjjfAnRXkO_O2W0JoOl_XvXdI=/870x565/filters:format(webp)/https://www.thedailymeal.com/sites/default/files/story/MAIN-skillsperfect-istock_thinkstock.jpg"
+				alt="img"
+			/>
+			<img
+				src="https://cdn.massagemag.com/wordpress/wp-content/uploads/womaneatingsalad-1024x683.jpg"
+				alt="img"
+			/>
 		</div>
 	</div>,
 	document.querySelector('#root398')
@@ -196,3 +205,6 @@ ReactDOM.render(<App424 />, document.querySelector('#root424'));
 ReactDOM.render(<App427 />, document.querySelector('#root427'));
 ReactDOM.render(<App428 />, document.querySelector('#root428'));
 ReactDOM.render(<App429 />, document.querySelector('#root429'));
+ReactDOM.render(<App430 />, document.querySelector('#root430'));
+ReactDOM.render(<App431 />, document.querySelector('#root431'));
+ReactDOM.render(<App432 />, document.querySelector('#root432'));

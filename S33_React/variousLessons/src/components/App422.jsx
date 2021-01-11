@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import animals from '../data';
 import cars from '../practice';
 
@@ -10,7 +10,7 @@ console.log(cat);
 const { name, sound } = cat;
 // changing the variable name
 const { name: catName, sound: catSound } = cat;
-console.log(catSound);
+console.log(catSound, catName, name, sound, dog);
 
 const [ tesla, honda ] = cars;
 
@@ -23,29 +23,32 @@ const { coloursByPopularity: [ teslaTopColour ] } = tesla;
 function App() {
 	return (
 		<table>
-			<tr>
-				<th>Brand</th>
-				<th>Top Speed</th>
-				<th>Top Color</th>
-			</tr>
-			<tr>
-				<td>{tesla.model}</td>
-				<td>{teslaTopSpeed}</td>
-				<td>{teslaTopColour}</td>
-			</tr>
-			<tr>
-				<td>{honda.model}</td>
-				<td>{hondaTopSpeed}</td>
-				<td>{hondaTopColour}</td>
-			</tr>
+			<thead>
+				<tr>
+					<th>Brand</th>
+					<th>Top Speed</th>
+					<th>Top Color</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{tesla.model}</td>
+					<td>{teslaTopSpeed}</td>
+					<td>{teslaTopColour}</td>
+				</tr>
+				<tr>
+					<td>{honda.model}</td>
+					<td>{hondaTopSpeed}</td>
+					<td>{hondaTopColour}</td>
+				</tr>
+			</tbody>
 		</table>
 	);
 }
 
 export default App;
 
-{
-	/* <table>
+/* <table>
 <tr>
 	<th>Brand</th>
 	<th>Top Speed</th>
@@ -62,4 +65,3 @@ export default App;
 	<td>{hondaTopColour}</td>
 </tr>
 </table> */
-}

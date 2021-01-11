@@ -3,8 +3,6 @@ import entries from '../emojipedia';
 import Entry from '../components/Entry413';
 
 function App() {
-	{
-	}
 	return (
 		<div>
 			<h1>

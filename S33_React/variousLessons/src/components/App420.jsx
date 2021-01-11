@@ -6,7 +6,7 @@ function App() {
 
 	// destructuring
 	const [ red, green, blue ] = [ 9, 132, 227 ];
-	console.log(red);
+	console.log(red, green, blue);
 
 	function increase() {
 		setCount(count + 1);

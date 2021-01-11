@@ -4,8 +4,7 @@ import Card410 from './Card410';
 import contacts from '../contacts410';
 import Avatar from '../components/Avatar411';
 
-const meImg =
-	'https://lh3.googleusercontent.com/proxy/CTGZ4unUsoLx37y4NK0XB6TG_vUQ2egsphWAwOJE2ypGeGt2hno8ufDIhROaGaQHbO5rrfKnzx2k8flRqe7iSwvKJcNE5aVg0l71AslMjBBZ8LEtc41rx1HP';
+const meImg = 'https://docplayer.es/docs-images/82/85291412/images/24-1.jpg';
 
 // 412
 function createCard(contact) {
