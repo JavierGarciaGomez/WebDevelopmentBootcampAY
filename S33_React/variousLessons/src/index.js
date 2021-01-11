@@ -12,6 +12,9 @@ import App401 from './components/App401';
 import App410 from './components/App410';
 import App413 from './components/App413';
 import emojipedia from './emojipedia';
+import App417 from './components/App417';
+import App418 from './components/App418';
+import App420 from './components/App420';
 
 // 394 render function
 // 394 ReactDOM.render({what to show}, {where to show}, {optional: callback when})
@@ -177,3 +180,9 @@ let mappedEmojipedia = emojipedia.map((emoji) => emoji.meaning.slice(0, 100));
 console.log(mappedEmojipedia);
 
 // 415 arrow functions
+
+ReactDOM.render(<App417 />, document.querySelector('#root417'));
+
+ReactDOM.render(<App418 />, document.querySelector('#root418'));
+
+ReactDOM.render(<App420 />, document.querySelector('#root420'));
