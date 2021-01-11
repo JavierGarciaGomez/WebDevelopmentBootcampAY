@@ -15,6 +15,12 @@ import emojipedia from './emojipedia';
 import App417 from './components/App417';
 import App418 from './components/App418';
 import App420 from './components/App420';
+import App421 from './components/App421';
+import App422 from './components/App422';
+import App424 from './components/App424';
+import App427 from './components/App427';
+import App428 from './components/App428';
+import App429 from './components/App429';
 
 // 394 render function
 // 394 ReactDOM.render({what to show}, {where to show}, {optional: callback when})
@@ -182,7 +188,11 @@ console.log(mappedEmojipedia);
 // 415 arrow functions
 
 ReactDOM.render(<App417 />, document.querySelector('#root417'));
-
 ReactDOM.render(<App418 />, document.querySelector('#root418'));
-
 ReactDOM.render(<App420 />, document.querySelector('#root420'));
+ReactDOM.render(<App421 />, document.querySelector('#root421'));
+ReactDOM.render(<App422 />, document.querySelector('#root422'));
+ReactDOM.render(<App424 />, document.querySelector('#root424'));
+ReactDOM.render(<App427 />, document.querySelector('#root427'));
+ReactDOM.render(<App428 />, document.querySelector('#root428'));
+ReactDOM.render(<App429 />, document.querySelector('#root429'));
